@@ -111,7 +111,7 @@ class Rectangle {
      * @param width Width of the rectangle
      * @param height Height of the rectangle
      */
-    constructor(x: number, y: number, width: number, height: number) 
+    constructor(params?: {x?: number, y?: number, width?: number, height?: number})
     /**
      * Creates a new rectangle
      * @constructor 

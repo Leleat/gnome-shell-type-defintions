@@ -3596,7 +3596,7 @@ interface Display {
     // Own properties of Meta-13.Meta.Display
 
     readonly compositor_modifiers: Clutter.ModifierType
-    readonly focus_window: Window
+    readonly focus_window: Window | null
 
     // Owm methods of Meta-13.Meta.Display
 

@@ -18,7 +18,7 @@ export namespace Graphene {
 
 /**
  * Specify the order of the rotations on each axis.
- * 
+ *
  * The %GRAPHENE_EULER_ORDER_DEFAULT value is special, and is used
  * as an alias for one of the other orders.
  */
@@ -178,74 +178,74 @@ const PI: number
 const PI_2: number
 /**
  * Evaluates to the number of components of a #graphene_vec2_t.
- * 
+ *
  * This symbol is useful when declaring a C array of floating
  * point values to be used with graphene_vec2_init_from_float() and
  * graphene_vec2_to_float(), e.g.
- * 
- * 
+ *
+ *
  * ```
  *   float v[GRAPHENE_VEC2_LEN];
- * 
+ *
  *   // vec is defined elsewhere
  *   graphene_vec2_to_float (&vec, v);
- * 
+ *
  *   for (int i = 0; i < GRAPHENE_VEC2_LEN; i++)
  *     fprintf (stdout, "component %d: %g\n", i, v[i]);
  * ```
- * 
+ *
  */
 const VEC2_LEN: number
 /**
  * Evaluates to the number of components of a #graphene_vec3_t.
- * 
+ *
  * This symbol is useful when declaring a C array of floating
  * point values to be used with graphene_vec3_init_from_float() and
  * graphene_vec3_to_float(), e.g.
- * 
- * 
+ *
+ *
  * ```
  *   float v[GRAPHENE_VEC3_LEN];
- * 
+ *
  *   // vec is defined elsewhere
  *   graphene_vec3_to_float (&vec, v);
- * 
+ *
  *   for (int i = 0; i < GRAPHENE_VEC2_LEN; i++)
  *     fprintf (stdout, "component %d: %g\n", i, v[i]);
  * ```
- * 
+ *
  */
 const VEC3_LEN: number
 /**
  * Evaluates to the number of components of a #graphene_vec4_t.
- * 
+ *
  * This symbol is useful when declaring a C array of floating
  * point values to be used with graphene_vec4_init_from_float() and
  * graphene_vec4_to_float(), e.g.
- * 
- * 
+ *
+ *
  * ```
  *   float v[GRAPHENE_VEC4_LEN];
- * 
+ *
  *   // vec is defined elsewhere
  *   graphene_vec4_to_float (&vec, v);
- * 
+ *
  *   for (int i = 0; i < GRAPHENE_VEC4_LEN; i++)
  *     fprintf (stdout, "component %d: %g\n", i, v[i]);
  * ```
- * 
+ *
  */
 const VEC4_LEN: number
 /**
  * A degenerate #graphene_box_t that can only be expanded.
- * 
+ *
  * The returned value is owned by Graphene and should not be modified or freed.
  * @returns a #graphene_box_t
  */
 function box_empty(): Box
 /**
  * A degenerate #graphene_box_t that cannot be expanded.
- * 
+ *
  * The returned value is owned by Graphene and should not be modified or freed.
  * @returns a #graphene_box_t
  */
@@ -253,7 +253,7 @@ function box_infinite(): Box
 /**
  * A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
  * maximum vertex set at (0, 0, 0).
- * 
+ *
  * The returned value is owned by Graphene and should not be modified or freed.
  * @returns a #graphene_box_t
  */
@@ -261,7 +261,7 @@ function box_minus_one(): Box
 /**
  * A #graphene_box_t with the minimum vertex set at (0, 0, 0) and the
  * maximum vertex set at (1, 1, 1).
- * 
+ *
  * The returned value is owned by Graphene and should not be modified or freed.
  * @returns a #graphene_box_t
  */
@@ -269,14 +269,14 @@ function box_one(): Box
 /**
  * A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
  * maximum vertex set at (1, 1, 1).
- * 
+ *
  * The returned value is owned by Graphene and should not be modified or freed.
  * @returns a #graphene_box_t
  */
 function box_one_minus_one(): Box
 /**
  * A #graphene_box_t with both the minimum and maximum vertices set at (0, 0, 0).
- * 
+ *
  * The returned value is owned by Graphene and should not be modified or freed.
  * @returns a #graphene_box_t
  */
@@ -293,7 +293,7 @@ function point3d_zero(): Point3D
 function point_zero(): Point
 /**
  * Allocates a new #graphene_rect_t.
- * 
+ *
  * The contents of the returned rectangle are undefined.
  * @returns the newly allocated rectangle
  */
@@ -426,7 +426,7 @@ interface Box {
     expand(point: Point3D): /* res */ Box
     /**
      * Expands the dimensions of `box` by the given `scalar` value.
-     * 
+     *
      * If `scalar` is positive, the #graphene_box_t will grow; if `scalar` is
      * negative, the #graphene_box_t will shrink.
      * @param scalar a scalar value
@@ -502,7 +502,7 @@ interface Box {
     /**
      * Initializes the given #graphene_box_t with the given array
      * of vertices.
-     * 
+     *
      * If `n_points` is 0, the returned box is initialized with
      * graphene_box_empty().
      * @param points an array of #graphene_point3d_t
@@ -520,7 +520,7 @@ interface Box {
     /**
      * Initializes the given #graphene_box_t with the given array
      * of vertices.
-     * 
+     *
      * If `n_vectors` is 0, the returned box is initialized with
      * graphene_box_empty().
      * @param vectors an array of #graphene_vec3_t
@@ -529,7 +529,7 @@ interface Box {
     init_from_vectors(vectors: Vec3[]): Box
     /**
      * Intersects the two given #graphene_box_t.
-     * 
+     *
      * If the two boxes do not intersect, `res` will contain a degenerate box
      * initialized with graphene_box_empty().
      * @param b a #graphene_box_t
@@ -546,7 +546,7 @@ interface Box {
 /**
  * A 3D box, described as the volume between a minimum and
  * a maximum vertices.
- * @record 
+ * @record
  */
 class Box {
 
@@ -558,22 +558,22 @@ class Box {
 
     /**
      * Allocates a new #graphene_box_t.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_box_t structure.   Use graphene_box_free() to free the resources allocated by this function
      */
     static alloc(): Box
     /**
      * A degenerate #graphene_box_t that can only be expanded.
-     * 
+     *
      * The returned value is owned by Graphene and should not be modified or freed.
      * @returns a #graphene_box_t
      */
     static empty(): Box
     /**
      * A degenerate #graphene_box_t that cannot be expanded.
-     * 
+     *
      * The returned value is owned by Graphene and should not be modified or freed.
      * @returns a #graphene_box_t
      */
@@ -581,7 +581,7 @@ class Box {
     /**
      * A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
      * maximum vertex set at (0, 0, 0).
-     * 
+     *
      * The returned value is owned by Graphene and should not be modified or freed.
      * @returns a #graphene_box_t
      */
@@ -589,7 +589,7 @@ class Box {
     /**
      * A #graphene_box_t with the minimum vertex set at (0, 0, 0) and the
      * maximum vertex set at (1, 1, 1).
-     * 
+     *
      * The returned value is owned by Graphene and should not be modified or freed.
      * @returns a #graphene_box_t
      */
@@ -597,14 +597,14 @@ class Box {
     /**
      * A #graphene_box_t with the minimum vertex set at (-1, -1, -1) and the
      * maximum vertex set at (1, 1, 1).
-     * 
+     *
      * The returned value is owned by Graphene and should not be modified or freed.
      * @returns a #graphene_box_t
      */
     static one_minus_one(): Box
     /**
      * A #graphene_box_t with both the minimum and maximum vertices set at (0, 0, 0).
-     * 
+     *
      * The returned value is owned by Graphene and should not be modified or freed.
      * @returns a #graphene_box_t
      */
@@ -628,7 +628,7 @@ interface Euler {
     /**
      * Retrieves the first component of the Euler angle vector,
      * depending on the order of rotation.
-     * 
+     *
      * See also: graphene_euler_get_x()
      * @returns the first component of the Euler angle vector, in radians
      */
@@ -636,7 +636,7 @@ interface Euler {
     /**
      * Retrieves the second component of the Euler angle vector,
      * depending on the order of rotation.
-     * 
+     *
      * See also: graphene_euler_get_y()
      * @returns the second component of the Euler angle vector, in radians
      */
@@ -644,7 +644,7 @@ interface Euler {
     /**
      * Retrieves the third component of the Euler angle vector,
      * depending on the order of rotation.
-     * 
+     *
      * See also: graphene_euler_get_z()
      * @returns the third component of the Euler angle vector, in radians
      */
@@ -653,7 +653,7 @@ interface Euler {
      * Retrieves the order used to apply the rotations described in the
      * #graphene_euler_t structure, when converting to and from other
      * structures, like #graphene_quaternion_t and #graphene_matrix_t.
-     * 
+     *
      * This function does not return the %GRAPHENE_EULER_ORDER_DEFAULT
      * enumeration value; it will return the effective order of rotation
      * instead.
@@ -677,7 +677,7 @@ interface Euler {
     get_z(): number
     /**
      * Initializes a #graphene_euler_t using the given angles.
-     * 
+     *
      * The order of the rotations is %GRAPHENE_EULER_ORDER_DEFAULT.
      * @param x rotation angle on the X axis, in degrees
      * @param y rotation angle on the Y axis, in degrees
@@ -688,7 +688,7 @@ interface Euler {
     /**
      * Initializes a #graphene_euler_t using the angles and order of
      * another #graphene_euler_t.
-     * 
+     *
      * If the #graphene_euler_t `src` is %NULL, this function is equivalent
      * to calling graphene_euler_init() with all angles set to 0.
      * @param src a #graphene_euler_t
@@ -697,7 +697,7 @@ interface Euler {
     init_from_euler(src: Euler | null): Euler
     /**
      * Initializes a #graphene_euler_t using the given rotation matrix.
-     * 
+     *
      * If the #graphene_matrix_t `m` is %NULL, the #graphene_euler_t will
      * be initialized with all angles set to 0.
      * @param m a rotation matrix
@@ -707,7 +707,7 @@ interface Euler {
     init_from_matrix(m: Matrix | null, order: EulerOrder): Euler
     /**
      * Initializes a #graphene_euler_t using the given normalized quaternion.
-     * 
+     *
      * If the #graphene_quaternion_t `q` is %NULL, the #graphene_euler_t will
      * be initialized with all angles set to 0.
      * @param q a normalized #graphene_quaternion_t
@@ -728,7 +728,7 @@ interface Euler {
     /**
      * Initializes a #graphene_euler_t using the angles contained in a
      * #graphene_vec3_t.
-     * 
+     *
      * If the #graphene_vec3_t `v` is %NULL, the #graphene_euler_t will be
      * initialized with all angles set to 0.
      * @param v a #graphene_vec3_t containing the rotation   angles in degrees
@@ -747,7 +747,7 @@ interface Euler {
     init_with_order(x: number, y: number, z: number, order: EulerOrder): Euler
     /**
      * Reorders a #graphene_euler_t using `order`.
-     * 
+     *
      * This function is equivalent to creating a #graphene_quaternion_t from the
      * given #graphene_euler_t, and then converting the quaternion into another
      * #graphene_euler_t.
@@ -757,18 +757,18 @@ interface Euler {
     /**
      * Converts a #graphene_euler_t into a transformation matrix expressing
      * the extrinsic composition of rotations described by the Euler angles.
-     * 
+     *
      * The rotations are applied over the reference frame axes in the order
      * associated with the #graphene_euler_t; for instance, if the order
      * used to initialize `e` is %GRAPHENE_EULER_ORDER_XYZ:
-     * 
+     *
      *  * the first rotation moves the body around the X axis with
      *    an angle φ
      *  * the second rotation moves the body around the Y axis with
      *    an angle of ϑ
      *  * the third rotation moves the body around the Z axis with
      *    an angle of ψ
-     * 
+     *
      * The rotation sign convention is right-handed, to preserve compatibility
      * between Euler-based, quaternion-based, and angle-axis-based rotations.
      */
@@ -786,10 +786,10 @@ interface Euler {
 
 /**
  * Describe a rotation using Euler angles.
- * 
+ *
  * The contents of the #graphene_euler_t structure are private
  * and should never be accessed directly.
- * @record 
+ * @record
  */
 class Euler {
 
@@ -801,9 +801,9 @@ class Euler {
 
     /**
      * Allocates a new #graphene_euler_t.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_euler_t
      */
     static alloc(): Euler
@@ -877,10 +877,10 @@ interface Frustum {
 
 /**
  * A 3D volume delimited by 2D clip planes.
- * 
+ *
  * The contents of the `graphene_frustum_t` are private, and should not be
  * modified directly.
- * @record 
+ * @record
  */
 class Frustum {
 
@@ -892,9 +892,9 @@ class Frustum {
 
     /**
      * Allocates a new #graphene_frustum_t structure.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_frustum_t   structure. Use graphene_frustum_free() to free the resources   allocated by this function.
      */
     static alloc(): Frustum
@@ -906,7 +906,7 @@ interface Matrix {
 
     /**
      * Decomposes a transformation matrix into its component transformations.
-     * 
+     *
      * The algorithm for decomposing a matrix is taken from the
      * [CSS3 Transforms specification](http://dev.w3.org/csswg/css-transforms/);
      * specifically, the decomposition code is based on the equivalent code
@@ -929,13 +929,13 @@ interface Matrix {
     /**
      * Checks whether the two given #graphene_matrix_t matrices are
      * byte-by-byte equal.
-     * 
+     *
      * While this function is faster than graphene_matrix_equal(), it
      * can also return false negatives, so it should be used in
      * conjuction with either graphene_matrix_equal() or
      * graphene_matrix_near(). For instance:
-     * 
-     * 
+     *
+     *
      * ```c
      *   if (graphene_matrix_equal_fast (a, b))
      *     {
@@ -951,7 +951,7 @@ interface Matrix {
      *         // matrices are not equal
      *     }
      * ```
-     * 
+     *
      * @param b a #graphene_matrix_t
      * @returns `true` if the matrices are equal. and `false` otherwise
      */
@@ -1005,17 +1005,17 @@ interface Matrix {
     /**
      * Initializes a #graphene_matrix_t from the values of an affine
      * transformation matrix.
-     * 
+     *
      * The arguments map to the following matrix layout:
-     * 
-     * 
+     *
+     *
      * ```<!-- language="plain" -->
      *   ⎛ xx  yx ⎞   ⎛  a   b  0 ⎞
      *   ⎜ xy  yy ⎟ = ⎜  c   d  0 ⎟
      *   ⎝ x0  y0 ⎠   ⎝ tx  ty  1 ⎠
      * ```
-     * 
-     * 
+     *
+     *
      * This function can be used to convert between an affine matrix type
      * from other libraries and a #graphene_matrix_t.
      * @param xx the xx member
@@ -1053,7 +1053,7 @@ interface Matrix {
     init_from_vec4(v0: Vec4, v1: Vec4, v2: Vec4, v3: Vec4): Matrix
     /**
      * Initializes a #graphene_matrix_t compatible with #graphene_frustum_t.
-     * 
+     *
      * See also: graphene_frustum_init_from_matrix()
      * @param left distance of the left clipping plane
      * @param right distance of the right clipping plane
@@ -1074,12 +1074,12 @@ interface Matrix {
      * at the given `eye` coordinates towards an object at the `center`
      * coordinates. The top of the camera is aligned to the direction
      * of the `up` vector.
-     * 
+     *
      * Before the transform, the camera is assumed to be placed at the
      * origin, looking towards the negative Z axis, with the top side of
      * the camera facing in the direction of the Y axis and the right
      * side in the direction of the X axis.
-     * 
+     *
      * In theory, one could use `m` to transform a model of such a camera
      * into world-space. However, it is more common to use the inverse of
      * `m` to transform another object from world coordinates to the view
@@ -1146,7 +1146,7 @@ interface Matrix {
     /**
      * Linearly interpolates the two given #graphene_matrix_t by
      * interpolating the decomposed transformations separately.
-     * 
+     *
      * If either matrix cannot be reduced to their transformations
      * then the interpolation cannot be performed, and this function
      * will return an identity matrix.
@@ -1182,7 +1182,7 @@ interface Matrix {
     is_singular(): boolean
     /**
      * Multiplies two #graphene_matrix_t.
-     * 
+     *
      * Matrix multiplication is not commutative in general; the order of the factors matters.
      * The product of this multiplication is (`a` × `b)`
      * @param b a #graphene_matrix_t
@@ -1208,7 +1208,7 @@ interface Matrix {
     perspective(depth: number): /* res */ Matrix
     /**
      * Prints the contents of a matrix to the standard error stream.
-     * 
+     *
      * This function is only useful for debugging; there are no guarantees
      * made on the format of the output.
      */
@@ -1220,14 +1220,14 @@ interface Matrix {
     project_point(p: Point): /* res */ Point
     /**
      * Projects all corners of a #graphene_rect_t using the given matrix.
-     * 
+     *
      * See also: graphene_matrix_project_point()
      * @param r a #graphene_rect_t
      */
     project_rect(r: Rect): /* res */ Quad
     /**
      * Projects a #graphene_rect_t using the given matrix.
-     * 
+     *
      * The resulting rectangle is the axis aligned bounding rectangle capable
      * of fully containing the projected rectangle.
      * @param r a #graphene_rect_t
@@ -1236,7 +1236,7 @@ interface Matrix {
     /**
      * Adds a rotation transformation to `m,` using the given `angle`
      * and `axis` vector.
-     * 
+     *
      * This is the equivalent of calling graphene_matrix_init_rotate() and
      * then multiplying the matrix `m` with the rotation matrix.
      * @param angle the rotation angle, in degrees
@@ -1252,7 +1252,7 @@ interface Matrix {
     /**
      * Adds a rotation transformation to `m,` using the given
      * #graphene_quaternion_t.
-     * 
+     *
      * This is the equivalent of calling graphene_quaternion_to_matrix() and
      * then multiplying `m` with the rotation matrix.
      * @param q a rotation described by a #graphene_quaternion_t
@@ -1261,7 +1261,7 @@ interface Matrix {
     /**
      * Adds a rotation transformation around the X axis to `m,` using
      * the given `angle`.
-     * 
+     *
      * See also: graphene_matrix_rotate()
      * @param angle the rotation angle, in degrees
      */
@@ -1269,7 +1269,7 @@ interface Matrix {
     /**
      * Adds a rotation transformation around the Y axis to `m,` using
      * the given `angle`.
-     * 
+     *
      * See also: graphene_matrix_rotate()
      * @param angle the rotation angle, in degrees
      */
@@ -1277,7 +1277,7 @@ interface Matrix {
     /**
      * Adds a rotation transformation around the Z axis to `m,` using
      * the given `angle`.
-     * 
+     *
      * See also: graphene_matrix_rotate()
      * @param angle the rotation angle, in degrees
      */
@@ -1285,7 +1285,7 @@ interface Matrix {
     /**
      * Adds a scaling transformation to `m,` using the three
      * given factors.
-     * 
+     *
      * This is the equivalent of calling graphene_matrix_init_scale() and then
      * multiplying the matrix `m` with the scale matrix.
      * @param factor_x scaling factor on the X axis
@@ -1311,17 +1311,17 @@ interface Matrix {
     /**
      * Converts a #graphene_matrix_t to an affine transformation
      * matrix, if the given matrix is compatible.
-     * 
+     *
      * The returned values have the following layout:
-     * 
-     * 
+     *
+     *
      * ```<!-- language="plain" -->
      *   ⎛ xx  yx ⎞   ⎛  a   b  0 ⎞
      *   ⎜ xy  yy ⎟ = ⎜  c   d  0 ⎟
      *   ⎝ x0  y0 ⎠   ⎝ tx  ty  1 ⎠
      * ```
-     * 
-     * 
+     *
+     *
      * This function can be used to convert between a #graphene_matrix_t
      * and an affine matrix type from other libraries.
      * @returns `true` if the matrix is compatible with an affine   transformation matrix
@@ -1334,17 +1334,17 @@ interface Matrix {
     to_float(): /* v */ number[]
     /**
      * Transforms each corner of a #graphene_rect_t using the given matrix `m`.
-     * 
+     *
      * The result is the axis aligned bounding rectangle containing the coplanar
      * quadrilateral.
-     * 
+     *
      * See also: graphene_matrix_transform_point()
      * @param r a #graphene_rect_t
      */
     transform_bounds(r: Rect): /* res */ Rect
     /**
      * Transforms the vertices of a #graphene_box_t using the given matrix `m`.
-     * 
+     *
      * The result is the axis aligned bounding box containing the transformed
      * vertices.
      * @param b a #graphene_box_t
@@ -1352,22 +1352,22 @@ interface Matrix {
     transform_box(b: Box): /* res */ Box
     /**
      * Transforms the given #graphene_point_t using the matrix `m`.
-     * 
+     *
      * Unlike graphene_matrix_transform_vec3(), this function will take into
      * account the fourth row vector of the #graphene_matrix_t when computing
      * the dot product of each row vector of the matrix.
-     * 
+     *
      * See also: graphene_simd4x4f_point3_mul()
      * @param p a #graphene_point_t
      */
     transform_point(p: Point): /* res */ Point
     /**
      * Transforms the given #graphene_point3d_t using the matrix `m`.
-     * 
+     *
      * Unlike graphene_matrix_transform_vec3(), this function will take into
      * account the fourth row vector of the #graphene_matrix_t when computing
      * the dot product of each row vector of the matrix.
-     * 
+     *
      * See also: graphene_simd4x4f_point3_mul()
      * @param p a #graphene_point3d_t
      */
@@ -1379,9 +1379,9 @@ interface Matrix {
     transform_ray(r: Ray): /* res */ Ray
     /**
      * Transforms each corner of a #graphene_rect_t using the given matrix `m`.
-     * 
+     *
      * The result is a coplanar quadrilateral.
-     * 
+     *
      * See also: graphene_matrix_transform_point()
      * @param r a #graphene_rect_t
      */
@@ -1394,18 +1394,18 @@ interface Matrix {
     transform_sphere(s: Sphere): /* res */ Sphere
     /**
      * Transforms the given #graphene_vec3_t using the matrix `m`.
-     * 
+     *
      * This function will multiply the X, Y, and Z row vectors of the matrix `m`
      * with the corresponding components of the vector `v`. The W row vector will
      * be ignored.
-     * 
+     *
      * See also: graphene_simd4x4f_vec3_mul()
      * @param v a #graphene_vec3_t
      */
     transform_vec3(v: Vec3): /* res */ Vec3
     /**
      * Transforms the given #graphene_vec4_t using the matrix `m`.
-     * 
+     *
      * See also: graphene_simd4x4f_vec4_mul()
      * @param v a #graphene_vec4_t
      */
@@ -1413,7 +1413,7 @@ interface Matrix {
     /**
      * Adds a translation transformation to `m` using the coordinates
      * of the given #graphene_point3d_t.
-     * 
+     *
      * This is the equivalent of calling graphene_matrix_init_translate() and
      * then multiplying `m` with the translation matrix.
      * @param pos a #graphene_point3d_t
@@ -1449,10 +1449,10 @@ interface Matrix {
 
 /**
  * A structure capable of holding a 4x4 matrix.
- * 
+ *
  * The contents of the #graphene_matrix_t structure are private and
  * should never be accessed directly.
- * @record 
+ * @record
  */
 class Matrix {
 
@@ -1464,7 +1464,7 @@ class Matrix {
 
     /**
      * Allocates a new #graphene_matrix_t.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated matrix
      */
     static alloc(): Matrix
@@ -1527,7 +1527,7 @@ interface Plane {
     /**
      * Initializes the given #graphene_plane_t using the 3 provided co-planar
      * points.
-     * 
+     *
      * The winding order is counter-clockwise, and determines which direction
      * the normal vector will point.
      * @param a a #graphene_point3d_t
@@ -1556,7 +1556,7 @@ interface Plane {
     /**
      * Transforms a #graphene_plane_t `p` using the given `matrix`
      * and `normal_matrix`.
-     * 
+     *
      * If `normal_matrix` is %NULL, a transformation matrix for the plane
      * normal will be computed from `matrix`. If you are transforming
      * multiple planes using the same `matrix` it's recommended to compute
@@ -1570,10 +1570,10 @@ interface Plane {
 
 /**
  * A 2D plane that extends infinitely in a 3D volume.
- * 
+ *
  * The contents of the `graphene_plane_t` are private, and should not be
  * modified directly.
- * @record 
+ * @record
  */
 class Plane {
 
@@ -1585,9 +1585,9 @@ class Plane {
 
     /**
      * Allocates a new #graphene_plane_t structure.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_plane_t.   Use graphene_plane_free() to free the resources allocated by   this function
      */
     static alloc(): Plane
@@ -1599,12 +1599,12 @@ interface Point {
 
     /**
      * the X coordinate of the point
-     * @field 
+     * @field
      */
     x: number
     /**
      * the Y coordinate of the point
-     * @field 
+     * @field
      */
     y: number
 
@@ -1625,7 +1625,7 @@ interface Point {
     /**
      * Checks if the two points `a` and `b` point to the same
      * coordinates.
-     * 
+     *
      * This function accounts for floating point fluctuations; if
      * you want to control the fuzziness of the match, you can use
      * graphene_point_near() instead.
@@ -1639,7 +1639,7 @@ interface Point {
     free(): void
     /**
      * Initializes `p` to the given `x` and `y` coordinates.
-     * 
+     *
      * It's safe to call this function multiple times.
      * @param x the X coordinate
      * @param y the Y coordinate
@@ -1682,7 +1682,7 @@ interface Point {
 
 /**
  * A point with two coordinates.
- * @record 
+ * @record
  */
 class Point {
 
@@ -1694,28 +1694,28 @@ class Point {
 
     /**
      * Allocates a new #graphene_point_t structure.
-     * 
+     *
      * The coordinates of the returned point are (0, 0).
-     * 
+     *
      * It's possible to chain this function with graphene_point_init()
      * or graphene_point_init_from_point(), e.g.:
-     * 
-     * 
+     *
+     *
      * ```c
      *   graphene_point_t *
      *   point_new (float x, float y)
      *   {
      *     return graphene_point_init (graphene_point_alloc (), x, y);
      *   }
-     * 
+     *
      *   graphene_point_t *
      *   point_copy (const graphene_point_t *p)
      *   {
      *     return graphene_point_init_from_point (graphene_point_alloc (), p);
      *   }
      * ```
-     * 
-     * @constructor 
+     *
+     * @constructor
      * @returns the newly allocated #graphene_point_t.   Use graphene_point_free() to free the resources allocated by   this function.
      */
     static alloc(): Point
@@ -1724,6 +1724,8 @@ class Point {
      * @returns a fixed point
      */
     static zero(): Point
+
+    constructor({ x, y }: {x: number, y: number})
 }
 
 interface Point3D {
@@ -1732,17 +1734,17 @@ interface Point3D {
 
     /**
      * the X coordinate
-     * @field 
+     * @field
      */
     x: number
     /**
      * the Y coordinate
-     * @field 
+     * @field
      */
     y: number
     /**
      * the Z coordinate
-     * @field 
+     * @field
      */
     z: number
 
@@ -1826,7 +1828,7 @@ interface Point3D {
     /**
      * Normalizes the coordinates of a #graphene_point3d_t using the
      * given viewport and clipping planes.
-     * 
+     *
      * The coordinates of the resulting #graphene_point3d_t will be
      * in the [ -1, 1 ] range.
      * @param viewport a #graphene_rect_t representing a viewport
@@ -1849,7 +1851,7 @@ interface Point3D {
 
 /**
  * A point with three components: X, Y, and Z.
- * @record 
+ * @record
  */
 class Point3D {
 
@@ -1861,7 +1863,7 @@ class Point3D {
 
     /**
      * Allocates a #graphene_point3d_t structure.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated structure.   Use graphene_point3d_free() to free the resources   allocated by this function.
      */
     static alloc(): Point3D
@@ -1922,10 +1924,10 @@ interface Quad {
 
 /**
  * A 4 vertex quadrilateral, as represented by four #graphene_point_t.
- * 
+ *
  * The contents of a #graphene_quad_t are private and should never be
  * accessed directly.
- * @record 
+ * @record
  */
 class Quad {
 
@@ -1937,9 +1939,9 @@ class Quad {
 
     /**
      * Allocates a new #graphene_quad_t instance.
-     * 
+     *
      * The contents of the returned instance are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly created #graphene_quad_t instance
      */
     static alloc(): Quad
@@ -1991,7 +1993,7 @@ interface Quaternion {
      * Initializes a #graphene_quaternion_t using the values of
      * the [Euler angles](http://en.wikipedia.org/wiki/Euler_angles)
      * on each axis.
-     * 
+     *
      * See also: graphene_quaternion_init_from_euler()
      * @param deg_x rotation angle on the X axis (yaw), in degrees
      * @param deg_y rotation angle on the Y axis (pitch), in degrees
@@ -2022,7 +2024,7 @@ interface Quaternion {
      * Initializes a #graphene_quaternion_t using the values of
      * the [Euler angles](http://en.wikipedia.org/wiki/Euler_angles)
      * on each axis.
-     * 
+     *
      * See also: graphene_quaternion_init_from_euler()
      * @param rad_x rotation angle on the X axis (yaw), in radians
      * @param rad_y rotation angle on the Y axis (pitch), in radians
@@ -2100,10 +2102,10 @@ interface Quaternion {
 
 /**
  * A quaternion.
- * 
+ *
  * The contents of the #graphene_quaternion_t structure are private
  * and should never be accessed directly.
- * @record 
+ * @record
  */
 class Quaternion {
 
@@ -2115,9 +2117,9 @@ class Quaternion {
 
     /**
      * Allocates a new #graphene_quaternion_t.
-     * 
+     *
      * The contents of the returned value are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_quaternion_t
      */
     static alloc(): Quaternion
@@ -2150,7 +2152,7 @@ interface Ray {
     /**
      * Computes the distance of the origin of the given #graphene_ray_t from the
      * given plane.
-     * 
+     *
      * If the ray does not intersect the plane, this function returns `INFINITY`.
      * @param p a #graphene_plane_t
      * @returns the distance of the origin of the ray from the plane
@@ -2159,7 +2161,7 @@ interface Ray {
     /**
      * Computes the distance of the closest approach between the
      * given #graphene_ray_t `r` and the point `p`.
-     * 
+     *
      * The closest approach to a ray from a point is the distance
      * between the point and the projection of the point on the
      * ray itself.
@@ -2223,7 +2225,7 @@ interface Ray {
     /**
      * Checks whether the given #graphene_ray_t `r` intersects the
      * given #graphene_box_t `b`.
-     * 
+     *
      * See also: graphene_ray_intersect_box()
      * @param b a #graphene_box_t
      * @returns `true` if the ray intersects the box
@@ -2232,7 +2234,7 @@ interface Ray {
     /**
      * Checks if the given #graphene_ray_t `r` intersects the
      * given #graphene_sphere_t `s`.
-     * 
+     *
      * See also: graphene_ray_intersect_sphere()
      * @param s a #graphene_sphere_t
      * @returns `true` if the ray intersects the sphere
@@ -2241,7 +2243,7 @@ interface Ray {
     /**
      * Checks whether the given #graphene_ray_t `r` intersects the
      * given #graphene_triangle_t `b`.
-     * 
+     *
      * See also: graphene_ray_intersect_triangle()
      * @param t a #graphene_triangle_t
      * @returns `true` if the ray intersects the triangle
@@ -2251,10 +2253,10 @@ interface Ray {
 
 /**
  * A ray emitted from an origin in a given direction.
- * 
+ *
  * The contents of the `graphene_ray_t` structure are private, and should not
  * be modified directly.
- * @record 
+ * @record
  */
 class Ray {
 
@@ -2266,9 +2268,9 @@ class Ray {
 
     /**
      * Allocates a new #graphene_ray_t structure.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_ray_t.   Use graphene_ray_free() to free the resources allocated by   this function
      */
     static alloc(): Ray
@@ -2280,12 +2282,12 @@ interface Rect {
 
     /**
      * the coordinates of the origin of the rectangle
-     * @field 
+     * @field
      */
     origin: Point
     /**
      * the size of the rectangle
-     * @field 
+     * @field
      */
     size: Size
 
@@ -2372,7 +2374,7 @@ interface Rect {
     get_y(): number
     /**
      * Initializes the given #graphene_rect_t with the given values.
-     * 
+     *
      * This function will implicitly normalize the #graphene_rect_t
      * before returning.
      * @param x the X coordinate of the `graphene_rect_t`.origin
@@ -2384,7 +2386,7 @@ interface Rect {
     init(x: number, y: number, width: number, height: number): Rect
     /**
      * Initializes `r` using the given `src` rectangle.
-     * 
+     *
      * This function will implicitly normalize the #graphene_rect_t
      * before returning.
      * @param src a #graphene_rect_t
@@ -2394,16 +2396,16 @@ interface Rect {
     /**
      * Changes the given rectangle to be smaller, or larger depending on the
      * given inset parameters.
-     * 
+     *
      * To create an inset rectangle, use positive `d_x` or `d_y` values; to
      * create a larger, encompassing rectangle, use negative `d_x` or `d_y`
      * values.
-     * 
+     *
      * The origin of the rectangle is offset by `d_x` and `d_y,` while the size
      * is adjusted by `(2 * `d_x,` 2 * `d_y)``. If `d_x` and `d_y` are positive
      * values, the size of the rectangle is decreased; if `d_x` and `d_y` are
      * negative values, the size of the rectangle is increased.
-     * 
+     *
      * If the size of the resulting inset rectangle has a negative width or
      * height then the size will be set to zero.
      * @param d_x the horizontal inset
@@ -2414,16 +2416,16 @@ interface Rect {
     /**
      * Changes the given rectangle to be smaller, or larger depending on the
      * given inset parameters.
-     * 
+     *
      * To create an inset rectangle, use positive `d_x` or `d_y` values; to
      * create a larger, encompassing rectangle, use negative `d_x` or `d_y`
      * values.
-     * 
+     *
      * The origin of the rectangle is offset by `d_x` and `d_y,` while the size
      * is adjusted by `(2 * `d_x,` 2 * `d_y)``. If `d_x` and `d_y` are positive
      * values, the size of the rectangle is decreased; if `d_x` and `d_y` are
      * negative values, the size of the rectangle is increased.
-     * 
+     *
      * If the size of the resulting inset rectangle has a negative width or
      * height then the size will be set to zero.
      * @param d_x the horizontal inset
@@ -2439,11 +2441,11 @@ interface Rect {
     interpolate(b: Rect, factor: number): /* res */ Rect
     /**
      * Computes the intersection of the two given rectangles.
-     * 
+     *
      * ![](rectangle-intersection.png)
-     * 
+     *
      * The intersection in the image above is the blue outline.
-     * 
+     *
      * If the two rectangles do not intersect, `res` will contain
      * a degenerate rectangle with origin in (0, 0) and a size of 0.
      * @param b a #graphene_rect_t
@@ -2452,7 +2454,7 @@ interface Rect {
     intersection(b: Rect): [ /* returnType */ boolean, /* res */ Rect ]
     /**
      * Normalizes the passed rectangle.
-     * 
+     *
      * This function ensures that the size of the rectangle is made of
      * positive values, and that the origin is the top-left corner of
      * the rectangle.
@@ -2461,7 +2463,7 @@ interface Rect {
     normalize(): Rect
     /**
      * Normalizes the passed rectangle.
-     * 
+     *
      * This function ensures that the size of the rectangle is made of
      * positive values, and that the origin is in the top-left corner
      * of the rectangle.
@@ -2469,7 +2471,7 @@ interface Rect {
     normalize_r(): /* res */ Rect
     /**
      * Offsets the origin by `d_x` and `d_y`.
-     * 
+     *
      * The size of the rectangle is unchanged.
      * @param d_x the horizontal offset
      * @param d_y the vertical offset
@@ -2478,7 +2480,7 @@ interface Rect {
     offset(d_x: number, d_y: number): Rect
     /**
      * Offsets the origin of the given rectangle by `d_x` and `d_y`.
-     * 
+     *
      * The size of the rectangle is left unchanged.
      * @param d_x the horizontal offset
      * @param d_y the vertical offset
@@ -2491,7 +2493,7 @@ interface Rect {
      * original rectangle, but might not fully contain its extents.
      * Use graphene_rect_round_extents() in case you need to round
      * to a rectangle that covers fully the original one.
-     * 
+     *
      * This function is the equivalent of calling `floor` on
      * the coordinates of the origin, and `ceil` on the size.
      */
@@ -2501,11 +2503,11 @@ interface Rect {
      * integer value and and recompute the size so that the
      * rectangle is large enough to contain all the conrners
      * of the original rectangle.
-     * 
+     *
      * This function is the equivalent of calling `floor` on
      * the coordinates of the origin, and recomputing the size
      * calling `ceil` on the bottom-right coordinates.
-     * 
+     *
      * If you want to be sure that the rounded rectangle
      * completely covers the area that was covered by the
      * original rectangle — i.e. you want to cover the area
@@ -2536,9 +2538,9 @@ interface Rect {
     scale(s_h: number, s_v: number): /* res */ Rect
     /**
      * Computes the union of the two given rectangles.
-     * 
+     *
      * ![](rectangle-union.png)
-     * 
+     *
      * The union in the image above is the blue outline.
      * @param b a #graphene_rect_t
      */
@@ -2547,18 +2549,18 @@ interface Rect {
 
 /**
  * The location and size of a rectangle region.
- * 
+ *
  * The width and height of a #graphene_rect_t can be negative; for instance,
  * a #graphene_rect_t with an origin of [ 0, 0 ] and a size of [ 10, 10 ] is
  * equivalent to a #graphene_rect_t with an origin of [ 10, 10 ] and a size
  * of [ -10, -10 ].
- * 
+ *
  * Application code can normalize rectangles using graphene_rect_normalize();
  * this function will ensure that the width and height of a rectangle are
  * positive values. All functions taking a #graphene_rect_t as an argument
  * will internally operate on a normalized copy; all functions returning a
  * #graphene_rect_t will always return a normalized rectangle.
- * @record 
+ * @record
  */
 class Rect {
 
@@ -2570,7 +2572,7 @@ class Rect {
 
     /**
      * Allocates a new #graphene_rect_t.
-     * 
+     *
      * The contents of the returned rectangle are undefined.
      * @returns the newly allocated rectangle
      */
@@ -2609,12 +2611,12 @@ interface Size {
 
     /**
      * the width
-     * @field 
+     * @field
      */
     width: number
     /**
      * the height
-     * @field 
+     * @field
      */
     height: number
 
@@ -2660,7 +2662,7 @@ interface Size {
 
 /**
  * A size.
- * @record 
+ * @record
  */
 class Size {
 
@@ -2672,9 +2674,9 @@ class Size {
 
     /**
      * Allocates a new #graphene_size_t.
-     * 
+     *
      * The contents of the returned value are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_size_t
      */
     static alloc(): Size
@@ -2737,7 +2739,7 @@ interface Sphere {
     /**
      * Initializes the given #graphene_sphere_t using the given array
      * of 3D coordinates so that the sphere includes them.
-     * 
+     *
      * The center of the sphere can either be specified, or will be center
      * of the 3D volume that encompasses all `points`.
      * @param points an array of #graphene_point3d_t
@@ -2748,7 +2750,7 @@ interface Sphere {
     /**
      * Initializes the given #graphene_sphere_t using the given array
      * of 3D coordinates so that the sphere includes them.
-     * 
+     *
      * The center of the sphere can either be specified, or will be center
      * of the 3D volume that encompasses all `vectors`.
      * @param vectors an array of #graphene_vec3_t
@@ -2771,7 +2773,7 @@ interface Sphere {
 
 /**
  * A sphere, represented by its center and radius.
- * @record 
+ * @record
  */
 class Sphere {
 
@@ -2783,9 +2785,9 @@ class Sphere {
 
     /**
      * Allocates a new #graphene_sphere_t.
-     * 
+     *
      * The contents of the newly allocated structure are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_sphere_t. Use   graphene_sphere_free() to free the resources allocated by this function
      */
     static alloc(): Sphere
@@ -2819,18 +2821,18 @@ interface Triangle {
     /**
      * Computes the [barycentric coordinates](http://en.wikipedia.org/wiki/Barycentric_coordinate_system)
      * of the given point `p`.
-     * 
+     *
      * The point `p` must lie on the same plane as the triangle `t;` if the
      * point is not coplanar, the result of this function is undefined.
-     * 
+     *
      * If we place the origin in the coordinates of the triangle's A point,
      * the barycentric coordinates are `u`, which is on the AC vector; and `v`
      * which is on the AB vector:
-     * 
+     *
      * ![](triangle-barycentric.png)
-     * 
+     *
      * The returned #graphene_vec2_t contains the following values, in order:
-     * 
+     *
      *  - `res.x = u`
      *  - `res.y = v`
      * @param p a #graphene_point3d_t
@@ -2843,7 +2845,7 @@ interface Triangle {
     get_bounding_box(): /* res */ Box
     /**
      * Computes the coordinates of the midpoint of the given #graphene_triangle_t.
-     * 
+     *
      * The midpoint G is the [centroid](https://en.wikipedia.org/wiki/Centroid#Triangle_centroid)
      * of the triangle, i.e. the intersection of its medians.
      */
@@ -2863,16 +2865,16 @@ interface Triangle {
     get_points(): [ /* a */ Point3D, /* b */ Point3D, /* c */ Point3D ]
     /**
      * Computes the UV coordinates of the given point `p`.
-     * 
+     *
      * The point `p` must lie on the same plane as the triangle `t;` if the point
      * is not coplanar, the result of this function is undefined. If `p` is %NULL,
      * the point will be set in (0, 0, 0).
-     * 
+     *
      * The UV coordinates will be placed in the `res` vector:
-     * 
+     *
      *  - `res.x = u`
      *  - `res.y = v`
-     * 
+     *
      * See also: graphene_triangle_get_barycoords()
      * @param p a #graphene_point3d_t
      * @param uv_a the UV coordinates of the first point
@@ -2915,7 +2917,7 @@ interface Triangle {
 
 /**
  * A triangle.
- * @record 
+ * @record
  */
 class Triangle {
 
@@ -2927,9 +2929,9 @@ class Triangle {
 
     /**
      * Allocates a new #graphene_triangle_t.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_triangle_t   structure. Use graphene_triangle_free() to free the resources   allocated by this function
      */
     static alloc(): Triangle
@@ -2980,7 +2982,7 @@ interface Vec2 {
     get_y(): number
     /**
      * Initializes a #graphene_vec2_t using the given values.
-     * 
+     *
      * This function can be called multiple times.
      * @param x the X field of the vector
      * @param y the Y field of the vector
@@ -3064,10 +3066,10 @@ interface Vec2 {
 
 /**
  * A structure capable of holding a vector with two dimensions, x and y.
- * 
+ *
  * The contents of the #graphene_vec2_t structure are private and should
  * never be accessed directly.
- * @record 
+ * @record
  */
 class Vec2 {
 
@@ -3079,11 +3081,11 @@ class Vec2 {
 
     /**
      * Allocates a new #graphene_vec2_t structure.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * 
+     *
      * Use graphene_vec2_init() to initialize the vector.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_vec2_t   structure. Use graphene_vec2_free() to free the resources allocated   by this function.
      */
     static alloc(): Vec2
@@ -3189,7 +3191,7 @@ interface Vec3 {
     get_z(): number
     /**
      * Initializes a #graphene_vec3_t using the given values.
-     * 
+     *
      * This function can be called multiple times.
      * @param x the X field of the vector
      * @param y the Y field of the vector
@@ -3274,10 +3276,10 @@ interface Vec3 {
 
 /**
  * A structure capable of holding a vector with three dimensions: x, y, and z.
- * 
+ *
  * The contents of the #graphene_vec3_t structure are private and should
  * never be accessed directly.
- * @record 
+ * @record
  */
 class Vec3 {
 
@@ -3289,11 +3291,11 @@ class Vec3 {
 
     /**
      * Allocates a new #graphene_vec3_t structure.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * 
+     *
      * Use graphene_vec3_init() to initialize the vector.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_vec3_t   structure. Use graphene_vec3_free() to free the resources allocated   by this function.
      */
     static alloc(): Vec3
@@ -3393,7 +3395,7 @@ interface Vec4 {
     get_z(): number
     /**
      * Initializes a #graphene_vec4_t using the given values.
-     * 
+     *
      * This function can be called multiple times.
      * @param x the X field of the vector
      * @param y the Y field of the vector
@@ -3497,10 +3499,10 @@ interface Vec4 {
 
 /**
  * A structure capable of holding a vector with four dimensions: x, y, z, and w.
- * 
+ *
  * The contents of the #graphene_vec4_t structure are private and should
  * never be accessed directly.
- * @record 
+ * @record
  */
 class Vec4 {
 
@@ -3512,11 +3514,11 @@ class Vec4 {
 
     /**
      * Allocates a new #graphene_vec4_t structure.
-     * 
+     *
      * The contents of the returned structure are undefined.
-     * 
+     *
      * Use graphene_vec4_init() to initialize the vector.
-     * @constructor 
+     * @constructor
      * @returns the newly allocated #graphene_vec4_t   structure. Use graphene_vec4_free() to free the resources allocated   by this function.
      */
     static alloc(): Vec4
